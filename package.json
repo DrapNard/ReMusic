@@ -12,6 +12,7 @@
     "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.5.3",
     "discord.js-commando": "github:discordjs/Commando",
+    "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.0.2",
     "opusscript": "^0.0.8",
     "vm": "^0.1.0",

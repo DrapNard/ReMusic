@@ -4,6 +4,8 @@ const discord = require('discord.js');
 const { CommandoClient } = require('discord.js-commando');
 const path = require("path");
 var playerstatue = "0"
+require("dotenv").config();
+
 
 /// La gestion des donner du bot \\\
 
@@ -42,7 +44,7 @@ client.on("error", (error) => console.error(error));                            
 
 /// Le Token (a quelle bot il se connecte) \\\
 
-client.login("MTAwODcyMzE5NjI5NzYyOTY5Ng.G8fq1j.d9f1LY4CODpvlQnah8JMFTPERjMDQg2U9SV3B8")
+client.login(process.env.BOT_TOKEN)
 
 
 
