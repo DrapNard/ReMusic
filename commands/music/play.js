@@ -52,22 +52,25 @@ module.exports = class PlayCommand extends Command {
         playerstatue = playerstatue == "1";
         message.client.server.dispatcher = dispatcher 
         message.reply("Lecture de " + query)
+        
+        while(membervoicechannel = true) {
 
-        dispatcher.on('finish', () => {
-            message.member.voice.channel.leave();
-            dispatcher.destroy();
-            
-            while(membervoicechannel = true) {
-                if (message.member.leave()){
-                    message.member.voice.channel.leave();
-                    dispatcher.destroy();
-                    membervoicechannel = false
-                };
-            }
+            dispatcher.on('finish', () => {
+                message.member.voice.channel.leave();
+                dispatcher.destroy();
+                membervoicechannel = false
+            });
 
+            if (message.member.leave()){
+                message.member.voice.channel.leave();
+                dispatcher.destroy();
+                membervoicechannel = false
+            };
         }
+        
 
-        );
     }
 }
+
+
 
