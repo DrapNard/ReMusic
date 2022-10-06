@@ -55,7 +55,15 @@ module.exports = class PlayCommand extends Command {
         dispatcher.on('finish', () => {
             message.member.voice.channel.leave();
             dispatcher.destroy();
-        });
+
+            if (message.member.leave()){
+                message.member.voice.channel.leave();
+                dispatcher.destroy();
+            };
+        }
+
+        );
     }
 }
+
 
