@@ -4,6 +4,7 @@ const ytdl = require('ytdl-core-discord');
 const Client = new discord.Client;
 const prefix = "-";
 var playerstatue;
+let membervoicechannel = false;
 
 
 
@@ -55,15 +56,18 @@ module.exports = class PlayCommand extends Command {
         dispatcher.on('finish', () => {
             message.member.voice.channel.leave();
             dispatcher.destroy();
+            
+            while(membervoicechannel = true) {
+                if (message.member.leave()){
+                    message.member.voice.channel.leave();
+                    dispatcher.destroy();
+                    membervoicechannel = false
+                };
+            }
 
-            if (message.member.leave()){
-                message.member.voice.channel.leave();
-                dispatcher.destroy();
-            };
         }
 
         );
     }
 }
-
 
