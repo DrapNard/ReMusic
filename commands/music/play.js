@@ -52,13 +52,13 @@ module.exports = class PlayCommand extends Command {
         playerstatue = playerstatue == "1";
         message.client.server.dispatcher = dispatcher 
         message.reply("Lecture de " + query)
+        membervoicechannel = true
         
-        while(membervoicechannel = true) {
+        do{
 
             dispatcher.on('finish', () => {
                 message.member.voice.channel.leave();
                 dispatcher.destroy();
-                membervoicechannel = false
             });
 
             if (message.member.leave()){
@@ -66,11 +66,10 @@ module.exports = class PlayCommand extends Command {
                 dispatcher.destroy();
                 membervoicechannel = false
             };
-        }
+        }while(membervoicechannel)
         
 
     }
 }
-
 
 
