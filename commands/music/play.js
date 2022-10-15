@@ -53,8 +53,6 @@ module.exports = class PlayCommand extends Command {
         message.client.server.dispatcher = dispatcher 
         message.reply("Lecture de " + query)
         membervoicechannel = true
-        
-        do{
 
             dispatcher.on('finish', () => {
                 message.member.voice.channel.leave();
@@ -66,8 +64,6 @@ module.exports = class PlayCommand extends Command {
                 dispatcher.destroy();
                 membervoicechannel = false
             };
-        }while(membervoicechannel)
-        
 
     }
 }
